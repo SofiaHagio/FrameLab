@@ -8,7 +8,7 @@
 
 O **Modo Estudo** é a simulação em Python de uma solução mobile voltada para estudantes que desejam organizar o conteúdo fotografado em sala de aula de forma simples e eficiente.
 
-A proposta real consiste em uma **ferramenta integrada à câmera do dispositivo** onde o usuário pode:
+A proposta real consiste em uma ferramenta integrada à câmera do dispositivo onde o usuário pode:
 
 - Criar pastas nomeadas com as matérias que desejar
 - Após tirar uma foto, escolher em qual pasta salvá-la com poucos toques, sem interromper o ritmo da aula
@@ -36,7 +36,7 @@ A proposta real consiste em uma **ferramenta integrada à câmera do dispositivo
 
 ### Pré-requisito
 
-- **Python 3.10 ou superior** instalado  
+- Python 3.10 ou superior instalado  
   Verifique com: `python --version` ou `python3 --version`
 
 ---
