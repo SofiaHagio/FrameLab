@@ -89,7 +89,7 @@ python3 framelab.py       ←  Linux / Mac
 
 ```
 📁 FrameLab
-├── 📄 framelab.py       ←  arquivo principal com todo o código
+├── 📄 framelab.py       ← arquivo principal com todo o código
 └── 📄 README.md        
 ```
 
