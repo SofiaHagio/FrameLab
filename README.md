@@ -51,8 +51,8 @@ git clone https://github.com/SofiaHagio/FrameLab.git
 cd framelab
 
 # Execute
-python framelab.py        # Windows
-python3 framelab.py       # Linux / Mac
+python framelab.py        ←  Windows
+python3 framelab.py       ←  Linux / Mac
 ```
 
 ---
@@ -89,7 +89,7 @@ python3 framelab.py       # Linux / Mac
 
 ```
 📁 FrameLab
-├── 📄 framelab.py       # arquivo principal com todo o código
+├── 📄 framelab.py       ←  arquivo principal com todo o código
 └── 📄 README.md        
 ```
 
@@ -105,16 +105,16 @@ framelab.py
 │   └── materias → lista principal de dicionários
 │
 ├── Funções utilitárias
-│   ├── limpar()          → limpa a tela 
-│   ├── linha()           → separador visual roxo
-│   ├── titulo()          → cabeçalho de cada seção
-│   ├── bot()             → mensagem do sistema
-│   ├── ok()              → mensagem de sucesso (verde)
-│   ├── erro()            → mensagem de erro (vermelho)
-│   └── voltar()          → pausa e retorno ao menu
+│   ├── limpar()          ← limpa a tela 
+│   ├── linha()           ← separador visual roxo
+│   ├── titulo()          ← cabeçalho de cada seção
+│   ├── bot()             ← mensagem do sistema
+│   ├── ok()              ← mensagem de sucesso (verde)
+│   ├── erro()            ← mensagem de erro (vermelho)
+│   └── voltar()          ← pausa e retorno ao menu
 │
 ├── Funções de lógica
-│   ├── achar_materia()   → busca matéria na lista pelo nome
+│   ├── achar_materia()   ← busca matéria na lista pelo nome
 │   ├── cadastrar_materia()
 │   ├── adicionar_foto()
 │   ├── ver_fotos()
@@ -122,14 +122,14 @@ framelab.py
 │   ├── buscar()
 │   └── mostrar_resultados()
 │
-└── menu()                → loop principal do programa
+└── menu()                ← loop principal do programa
 ```
 
 ---
 
 ## 📌 Observação 
 
-Os dados ficam armazenados **na memória** enquanto o programa está rodando. Ao encerrar, as informações são perdidas — sem banco de dados ou arquivo externo nesta versão, que representa a simulação do fluxo principal da solução proposta.
+Os dados ficam armazenados na memória enquanto o programa está rodando. Ao encerrar, as informações são perdidas — sem banco de dados ou arquivo externo nesta versão, que representa a simulação do fluxo principal da solução proposta.
 
 ---
 
