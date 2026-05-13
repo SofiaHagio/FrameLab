@@ -134,7 +134,7 @@ Os dados ficam armazenados **na memória** enquanto o programa está rodando. Ao
 
 ---
 
-## 👥 Integrantes
+## 👩‍💻 Time
 
 | Nome | RM |
 |------|----|
