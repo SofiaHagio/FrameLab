@@ -88,10 +88,9 @@ python3 framelab.py       # Linux / Mac
 ## 🗂️ Estrutura do projeto
 
 ```
-framelab/
-│
-├── framelab.py       # arquivo principal com todo o código
-└── README.md        
+📁 FrameLab
+├── 📄 framelab.py       # arquivo principal com todo o código
+└── 📄 README.md        
 ```
 
 ### Organização interna do código
@@ -134,7 +133,7 @@ Os dados ficam armazenados **na memória** enquanto o programa está rodando. Ao
 
 ---
 
-## 👩‍💻 Time
+## 👩‍💻 Equipe
 
 | Nome | RM |
 |------|----|
