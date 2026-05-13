@@ -4,7 +4,7 @@
 
 ---
 
-## 💡 Sobre o projeto
+## 📌 Descrição do projeto
 
 O **Modo Estudo** é a simulação em Python de uma solução mobile voltada para estudantes que desejam organizar o conteúdo fotografado em sala de aula de forma simples e eficiente.
 
@@ -32,7 +32,7 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ---
 
-## 🚀 Como executar
+## ▶️ Como executar
 
 ### Pré-requisito
 
@@ -41,7 +41,7 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ---
 
-### ▶️ Pelo terminal (qualquer sistema)
+### 🟢 Pelo terminal (qualquer sistema)
 
 ```bash
 # Clone o repositório
@@ -85,7 +85,7 @@ python3 framelab.py       ← Linux / Mac
 
 ---
 
-## 🗂️ Estrutura do projeto
+## 🗂️ Estrutura do repositório
 
 ```
 📁 FrameLab
@@ -127,7 +127,7 @@ framelab.py
 
 ---
 
-## 📌 Observação 
+## ⚠️ Observação 
 
 Os dados ficam armazenados na memória enquanto o programa está rodando. Ao encerrar, as informações são perdidas — sem banco de dados ou arquivo externo nesta versão, que representa a simulação do fluxo principal da solução proposta.
 
