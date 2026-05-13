@@ -51,8 +51,8 @@ git clone https://github.com/SofiaHagio/FrameLab.git
 cd framelab
 
 # Execute
-python framelab.py        ←  Windows
-python3 framelab.py       ←  Linux / Mac
+python framelab.py        ← Windows
+python3 framelab.py       ← Linux / Mac
 ```
 
 ---
