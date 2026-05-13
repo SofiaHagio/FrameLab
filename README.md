@@ -2,8 +2,6 @@
 
 > Simulação em terminal de uma ferramenta integrada à câmera do dispositivo para organização de fotos de estudo por matéria.
 
-Projeto desenvolvido para a **Sprint 2 — Computational Thinking with Python** | FIAP 2026
-
 ---
 
 ## 💡 Sobre o projeto
