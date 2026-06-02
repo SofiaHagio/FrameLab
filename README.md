@@ -34,7 +34,13 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ## ▶️ Como executar
 
-> 🟢 Pelo terminal (qualquer sistema)
+### Pré-requisito
+
+- Python 3.10 ou superior instalado  
+> Verifique com: `python --version` ou `python3 --version`
+
+--- 
+### 🟢 Pelo terminal (qualquer sistema)
 
 ```bash
 # Clone o repositório
@@ -48,7 +54,8 @@ python framelab.py ← Windows
 python3 framelab.py ← Linux / Mac
 ```
 
-> 🟡 Pelo PyCharm
+---
+### 🟡 Pelo PyCharm
 
 1. Abra o **PyCharm** e clique em `File > Open`
 2. Selecione a pasta do projeto (`framelab`)
@@ -56,9 +63,10 @@ python3 framelab.py ← Linux / Mac
 4. No painel lateral, clique com o botão direito em `framelab.py`
 5. Clique em **"Run 'framelab'"**
 6. O terminal integrado abrirá na parte inferior com o programa rodando
+---
 
-
-> 🔵 Pelo VS Code
+---
+### 🔵 Pelo VS Code
 
 1. Abra o **VS Code** e clique em `File > Open Folder`
 2. Selecione a pasta do projeto (`framelab`)
@@ -68,7 +76,6 @@ python3 framelab.py ← Linux / Mac
 5. Clique no botão **▶ Run Python File** no canto superior direito  
    _ou use o atalho_ `Ctrl + F5`
 6. O terminal integrado abrirá na parte inferior com o programa rodando
-
 ---
 
 ## 🗂️ Estrutura do repositório
