@@ -74,12 +74,13 @@ python3 framelab.py ← Linux / Mac
 ## 🗂️ Estrutura do repositório
 
 ```
-📁 FrameLab/
-├── 📄 framelab.py ← Arquivo principal com todo o código
-└── 📄 README.md ← Este arquivo       
+FrameLab/
+├── framelab.py ← Arquivo principal com todo o código
+└── README.md ← Este arquivo       
 ```
+---
 
-> Organização interna do código
+## 💬 Organização interna do código
 
 ```
 framelab.py
