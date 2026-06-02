@@ -10,12 +10,12 @@ O **Modo Estudo** é a simulação em Python de uma solução mobile voltada par
 
 A proposta real consiste em uma ferramenta integrada à câmera do dispositivo onde o usuário pode:
 
-- Criar pastas nomeadas com as matérias que desejar
-- Após tirar uma foto, escolher em qual pasta salvá-la com poucos toques, sem interromper o ritmo da aula
-- Navegar pelo acervo e visualizar todo o material registrado por matéria
-- Utilizar uma busca inteligente baseada em OCR, que lê o texto visível dentro das fotos e retorna resultados pela palavra-chave digitada, independente da pasta
-- Renomear, excluir pastas e mover fotos entre elas
-- Personalizar cada pasta com uma cor diferente para facilitar a identificação visual das matérias
+- Criar pastas nomeadas com as matérias que desejar.
+- Após tirar uma foto, escolher em qual pasta salvá-la com poucos toques, sem interromper o ritmo da aula.
+- Navegar pelo acervo e visualizar todo o material registrado por matéria.
+- Utilizar uma busca inteligente baseada em OCR, que lê o texto visível dentro das fotos e retorna resultados pela palavra-chave digitada, independente da pasta.
+- Renomear, excluir pastas e mover fotos entre elas.
+- Personalizar cada pasta com uma cor diferente para facilitar a identificação visual das matérias.
 
 ---
 
