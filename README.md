@@ -34,10 +34,8 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ## ▶️ Como executar
 
-- Python 3.10 ou superior instalado  
-  Verifique com: `python --version` ou `python3 --version`
-
----
+> - Python 3.10 ou superior instalado  
+>  Verifique com: `python --version` ou `python3 --version`
 
 🟢 Pelo terminal (qualquer sistema)
 
@@ -53,8 +51,6 @@ python framelab.py ← Windows
 python3 framelab.py ← Linux / Mac
 ```
 
----
-
 🟡 Pelo PyCharm
 
 1. Abra o **PyCharm** e clique em `File > Open`
@@ -66,7 +62,6 @@ python3 framelab.py ← Linux / Mac
 
 > **Observação:** Caso apareça erro de interpretador, vá em `File > Settings > Project > Python Interpreter` e selecione o Python 3.10+ instalado na máquina.
 
----
 
 🔵 Pelo VS Code
 
