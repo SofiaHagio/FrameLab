@@ -34,10 +34,7 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ## ▶️ Como executar
 
-> - Python 3.10 ou superior instalado  
->  Verifique com: `python --version` ou `python3 --version`
-
-🟢 Pelo terminal (qualquer sistema)
+> 🟢 Pelo terminal (qualquer sistema)
 
 ```bash
 # Clone o repositório
@@ -51,7 +48,7 @@ python framelab.py ← Windows
 python3 framelab.py ← Linux / Mac
 ```
 
-🟡 Pelo PyCharm
+> 🟡 Pelo PyCharm
 
 1. Abra o **PyCharm** e clique em `File > Open`
 2. Selecione a pasta do projeto (`framelab`)
@@ -60,10 +57,8 @@ python3 framelab.py ← Linux / Mac
 5. Clique em **"Run 'framelab'"**
 6. O terminal integrado abrirá na parte inferior com o programa rodando
 
-> **Observação:** Caso apareça erro de interpretador, vá em `File > Settings > Project > Python Interpreter` e selecione o Python 3.10+ instalado na máquina.
 
-
-🔵 Pelo VS Code
+> 🔵 Pelo VS Code
 
 1. Abra o **VS Code** e clique em `File > Open Folder`
 2. Selecione a pasta do projeto (`framelab`)
@@ -73,8 +68,6 @@ python3 framelab.py ← Linux / Mac
 5. Clique no botão **▶ Run Python File** no canto superior direito  
    _ou use o atalho_ `Ctrl + F5`
 6. O terminal integrado abrirá na parte inferior com o programa rodando
-
-> **Observação:** Se o VS Code não reconhecer o interpretador, pressione `Ctrl + Shift + P`, digite `Python: Select Interpreter` e escolha o Python 3.10+ instalado.
 
 ---
 
@@ -95,19 +88,19 @@ framelab.py
 │   └── ROXO, VERDE, VERMELHO, CINZA, NEGRITO, RESET...
 │
 ├── Estrutura de dados
-│   └── materias → lista principal de dicionários
+│   └── materias ← lista principal de dicionários
 │
 ├── Funções utilitárias
-│   ├── limpar()          ← limpa a tela 
-│   ├── linha()           ← separador visual roxo
-│   ├── titulo()          ← cabeçalho de cada seção
-│   ├── bot()             ← mensagem do sistema
-│   ├── ok()              ← mensagem de sucesso (verde)
-│   ├── erro()            ← mensagem de erro (vermelho)
-│   └── voltar()          ← pausa e retorno ao menu
+│   ├── limpar() ← limpa a tela 
+│   ├── linha() ← separador visual roxo
+│   ├── titulo() ← cabeçalho de cada seção
+│   ├── bot() ← mensagem do sistema
+│   ├── ok() ← mensagem de sucesso (verde)
+│   ├── erro() ← mensagem de erro (vermelho)
+│   └── voltar() ← pausa e retorno ao menu
 │
 ├── Funções de lógica
-│   ├── achar_materia()   ← busca matéria na lista pelo nome
+│   ├── achar_materia() ← busca matéria na lista pelo nome
 │   ├── cadastrar_materia()
 │   ├── adicionar_foto()
 │   ├── ver_fotos()
@@ -115,7 +108,7 @@ framelab.py
 │   ├── buscar()
 │   └── mostrar_resultados()
 │
-└── menu()                ← loop principal do programa
+└── menu() ← loop principal do programa
 ```
 
 ---
