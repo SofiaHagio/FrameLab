@@ -34,8 +34,6 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 
 ## ▶️ Como executar
 
-> Pré-requisito
-
 - Python 3.10 ou superior instalado  
   Verifique com: `python --version` ou `python3 --version`
 
