@@ -573,6 +573,41 @@ def mover_foto():
     ok(f"Foto '{foto['tema']}' movida de '{materia_origem['nome']}' para '{materia_destino['nome']}'!")
     voltar()
 
+def adicionar_anotacao():
+    titulo("Anotar Foto")
+    materia = escolher_materia("De qual materia e a foto?", somente_com_fotos=True)
+    if materia is None:
+        voltar()
+        return
+
+    print()
+    bot(f"Qual foto de '{materia['nome']}' quer anotar?")
+    print()
+    for i in range(len(materia["fotos"])):
+        f = materia["fotos"][i]
+        print(f"  [{i + 1}] {f['tema']}  |  {f['data']}")
+
+    idx_foto = pedir_numero(1, len(materia["fotos"]))
+    if idx_foto is None:
+        voltar()
+        return
+
+    foto = materia["fotos"][idx_foto - 1]
+
+    print()
+    bot("Digite a anotacao sobre essa foto (algo que nao apareceu na imagem).")
+    if foto.get("anotacoes", ""):
+        bot(f"Anotacao atual: {foto['anotacoes']}")
+    print()
+    anotacao = input("  >> ").strip()
+
+    foto["anotacoes"] = anotacao
+    salvar_dados()
+
+    print()
+    ok(f"Anotacao salva na foto '{foto['tema']}'!")
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
@@ -616,6 +651,7 @@ def menu():
         print(f"  [6] Remover materia")
         print(f"  [7] Reconhecer texto (OCR)")
         print(f"  [8] Mover foto de materia")
+        print(f"  [9] Anotar foto")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -641,6 +677,8 @@ def menu():
                 reconhecer_texto_ocr()
             case "8":
                 mover_foto()
+            case "9":
+                adicionar_anotacao()
             case "0":
                 limpar()
                 print()
