@@ -294,6 +294,7 @@ def buscar():
     print(f"  [1] Por materia")
     print(f"  [2] Por tema")
     print(f"  [3] Por palavra (busca em tudo)")
+    print(f"  [4] Por texto da foto (OCR)")
     print()
 
     opcao = input("  >> ").strip()
@@ -364,6 +365,25 @@ def buscar():
         for materia in materias:
             for f in materia["fotos"]:
                 if busca in materia["nome"].lower() or busca in f["tema"].lower():
+                    encontrados.append((materia["nome"], f))
+
+        mostrar_resultados(encontrados)
+
+    elif opcao == "4":
+        print()
+        bot("Qual palavra procurar dentro do texto reconhecido nas fotos (OCR)?")
+        print()
+        busca = input("  >> ").strip().lower()
+
+        if busca == "":
+            erro("Digite alguma coisa.")
+            voltar()
+            return
+
+        encontrados = []
+        for materia in materias:
+            for f in materia["fotos"]:
+                if busca in f.get("texto_ocr", "").lower():
                     encontrados.append((materia["nome"], f))
 
         mostrar_resultados(encontrados)
@@ -461,10 +481,45 @@ def remover_materia():
     ok(f"Materia '{materia['nome']}' removida com sucesso!")
     voltar()
 
+def reconhecer_texto_ocr():
+    titulo("Reconhecer Texto (OCR)")
+    materia = escolher_materia("De qual materia e a foto?", somente_com_fotos=True)
+    if materia is None:
+        voltar()
+        return
+
+    print()
+    bot(f"Qual foto de '{materia['nome']}' quer reconhecer o texto?")
+    print()
+    for i in range(len(materia["fotos"])):
+        f = materia["fotos"][i]
+        print(f"  [{i + 1}] {f['tema']}  |  {f['data']}")
+
+    idx_foto = pedir_numero(1, len(materia["fotos"]))
+    if idx_foto is None:
+        voltar()
+        return
+
+    foto = materia["fotos"][idx_foto - 1]
+
+    print()
+    bot("Digite o texto que aparece na foto (simulando o reconhecimento por OCR).")
+    if foto.get("texto_ocr", ""):
+        bot(f"Texto atual: {foto['texto_ocr']}")
+    print()
+    texto = input("  >> ").strip()
+
+    foto["texto_ocr"] = texto
+    salvar_dados()
+
+    print()
+    ok(f"Texto reconhecido salvo na foto '{foto['tema']}'!")
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
-    print()u
+    print()
 
     print(ROXO_F + NEGRITO + """
   ╔══════════════════════════════╗
@@ -502,6 +557,7 @@ def menu():
         print(f"  [4] Buscar foto")
         print(f"  [5] Remover foto")
         print(f"  [6] Remover materia")
+        print(f"  [7] Reconhecer texto (OCR)")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -523,6 +579,8 @@ def menu():
                 remover_foto()
             case "6":
                 remover_materia()
+            case "7":
+                reconhecer_texto_ocr()
             case "0":
                 limpar()
                 print()
