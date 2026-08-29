@@ -516,6 +516,63 @@ def reconhecer_texto_ocr():
     ok(f"Texto reconhecido salvo na foto '{foto['tema']}'!")
     voltar()
 
+def mover_foto():
+    titulo("Mover Foto")
+    if len(materias) < 2:
+        bot("Precisa ter pelo menos duas materias cadastradas para mover uma foto.")
+        voltar()
+        return
+
+    materia_origem = escolher_materia("De qual materia esta a foto?", somente_com_fotos=True)
+    if materia_origem is None:
+        voltar()
+        return
+
+    print()
+    bot(f"Qual foto de '{materia_origem['nome']}' quer mover?")
+    print()
+    for i in range(len(materia_origem["fotos"])):
+        f = materia_origem["fotos"][i]
+        print(f"  [{i + 1}] {f['tema']}  |  {f['data']}")
+
+    idx_foto = pedir_numero(1, len(materia_origem["fotos"]))
+    if idx_foto is None:
+        voltar()
+        return
+
+    foto = materia_origem["fotos"][idx_foto - 1]
+
+    destinos = []
+    for m in materias:
+        if m["nome"] != materia_origem["nome"]:
+            destinos.append(m)
+
+    if len(destinos) == 0:
+        bot("Nao ha outra materia para mover essa foto.")
+        voltar()
+        return
+
+    print()
+    bot(f"Para qual materia quer mover '{foto['tema']}'?")
+    print()
+    for i in range(len(destinos)):
+        print(f"  [{i + 1}] {destinos[i]['nome']}  ({len(destinos[i]['fotos'])} foto(s))")
+
+    idx_destino = pedir_numero(1, len(destinos))
+    if idx_destino is None:
+        voltar()
+        return
+
+    materia_destino = destinos[idx_destino - 1]
+
+    materia_origem["fotos"].remove(foto)
+    materia_destino["fotos"].append(foto)
+    salvar_dados()
+
+    print()
+    ok(f"Foto '{foto['tema']}' movida de '{materia_origem['nome']}' para '{materia_destino['nome']}'!")
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
@@ -558,6 +615,7 @@ def menu():
         print(f"  [5] Remover foto")
         print(f"  [6] Remover materia")
         print(f"  [7] Reconhecer texto (OCR)")
+        print(f"  [8] Mover foto de materia")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -581,6 +639,8 @@ def menu():
                 remover_materia()
             case "7":
                 reconhecer_texto_ocr()
+            case "8":
+                mover_foto()
             case "0":
                 limpar()
                 print()
