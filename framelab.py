@@ -608,6 +608,37 @@ def adicionar_anotacao():
     ok(f"Anotacao salva na foto '{foto['tema']}'!")
     voltar()
 
+def favoritar_foto():
+    titulo("Favoritar Foto")
+    materia = escolher_materia("De qual materia e a foto?", somente_com_fotos=True)
+    if materia is None:
+        voltar()
+        return
+
+    print()
+    bot(f"Qual foto de '{materia['nome']}' quer favoritar/desfavoritar?")
+    print()
+    for i in range(len(materia["fotos"])):
+        f = materia["fotos"][i]
+        marca = "  (favorita)" if f.get("favorito", False) else ""
+        print(f"  [{i + 1}] {f['tema']}  |  {f['data']}{marca}")
+
+    idx_foto = pedir_numero(1, len(materia["fotos"]))
+    if idx_foto is None:
+        voltar()
+        return
+
+    foto = materia["fotos"][idx_foto - 1]
+    foto["favorito"] = not foto.get("favorito", False)
+    salvar_dados()
+
+    print()
+    if foto["favorito"]:
+        ok(f"Foto '{foto['tema']}' marcada como favorita!")
+    else:
+        ok(f"Foto '{foto['tema']}' removida dos favoritos.")
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
@@ -652,6 +683,7 @@ def menu():
         print(f"  [7] Reconhecer texto (OCR)")
         print(f"  [8] Mover foto de materia")
         print(f"  [9] Anotar foto")
+        print(f"  [10] Favoritar foto")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -679,6 +711,8 @@ def menu():
                 mover_foto()
             case "9":
                 adicionar_anotacao()
+            case "10":
+                favoritar_foto()
             case "0":
                 limpar()
                 print()
