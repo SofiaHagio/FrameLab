@@ -12,6 +12,9 @@ CINZA   = "\033[90m"
 NEGRITO = "\033[1m"
 RESET   = "\033[0m"
 
+# arquivo onde os dados ficam salvos entre uma execucao e outra
+ARQUIVO_DADOS = "dados_framelab.json"
+
 # lista principal que guarda todas as materias
 materias = []
 
@@ -370,11 +373,32 @@ def buscar():
 
     voltar()
 
+def salvar_dados():
+    try:
+        arquivo = open(ARQUIVO_DADOS, "w", encoding="utf-8")
+        json.dump(materias, arquivo, ensure_ascii=False, indent=2)
+        arquivo.close()
+    except OSError:
+        erro("Nao foi possivel salvar os dados no arquivo.")
+
+
+def carregar_dados():
+    global materias
+    if not os.path.exists(ARQUIVO_DADOS):
+        materias = []
+        return
+    try:
+        arquivo = open(ARQUIVO_DADOS, "r", encoding="utf-8")
+        materias = json.load(arquivo)
+        arquivo.close()
+    except (OSError, json.JSONDecodeError):
+        erro("O arquivo de dados esta corrompido, iniciando do zero.")
+        materias = []
 
 # menu principal com loop while
 def menu():
     limpar()
-    print()
+    print()u
 
     print(ROXO_F + NEGRITO + """
   ╔══════════════════════════════╗
@@ -441,4 +465,5 @@ def menu():
                 input()
 
 # inicia o programa
+carregar_dados()
 menu()
