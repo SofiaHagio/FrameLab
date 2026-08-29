@@ -395,6 +395,45 @@ def carregar_dados():
         erro("O arquivo de dados esta corrompido, iniciando do zero.")
         materias = []
 
+def pedir_numero(minimo, maximo):
+    print()
+    escolha = input("  >> ").strip()
+    if not escolha.isdigit():
+        erro("Digite um numero valido.")
+        return None
+    numero = int(escolha)
+    if numero < minimo or numero > maximo:
+        erro("Opcao invalida.")
+        return None
+    return numero
+
+
+def escolher_materia(mensagem, somente_com_fotos=False):
+    disponiveis = []
+    for m in materias:
+        if somente_com_fotos == False:
+            disponiveis.append(m)
+        elif len(m["fotos"]) > 0:
+            disponiveis.append(m)
+
+    if len(disponiveis) == 0:
+        if somente_com_fotos:
+            bot("Nenhuma materia tem fotos ainda.")
+        else:
+            bot("Voce ainda nao tem nenhuma materia. Crie uma primeiro!")
+        return None
+
+    bot(mensagem)
+    print()
+    for i in range(len(disponiveis)):
+        total = len(disponiveis[i]["fotos"])
+        print(f"  [{i + 1}] {disponiveis[i]['nome']}  ({total} foto(s))")
+
+    numero = pedir_numero(1, len(disponiveis))
+    if numero is None:
+        return None
+    return disponiveis[numero - 1]
+
 # menu principal com loop while
 def menu():
     limpar()
