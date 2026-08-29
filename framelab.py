@@ -639,6 +639,41 @@ def favoritar_foto():
         ok(f"Foto '{foto['tema']}' removida dos favoritos.")
     voltar()
 
+def ver_favoritas():
+    titulo("Fotos Favoritas")
+    if len(materias) == 0:
+        bot("Nenhuma materia cadastrada ainda.")
+        voltar()
+        return
+
+    total_favoritas = 0
+    for materia in materias:
+        favoritas = []
+        for f in materia["fotos"]:
+            if f.get("favorito", False):
+                favoritas.append(f)
+
+        if len(favoritas) == 0:
+            continue
+
+        total_favoritas += len(favoritas)
+        print(NEGRITO + f"  {materia['nome']}" + RESET + CINZA + f"  ({len(favoritas)} favorita(s))" + RESET)
+        linha()
+        for i in range(len(favoritas)):
+            f = favoritas[i]
+            print(ROXO_F + f"    [{i + 1}] foto: " + RESET + f"{f['nome']}")
+            print(CINZA + f"    tema: {f['tema']}  |  {f['data']}" + RESET)
+            if f.get("texto_ocr", ""):
+                print(CINZA + f"    OCR: {f['texto_ocr']}" + RESET)
+            if f.get("anotacoes", ""):
+                print(CINZA + f"    Nota: {f['anotacoes']}" + RESET)
+        print()
+
+    if total_favoritas == 0:
+        bot("Nenhuma foto favoritada ainda. Use a opcao Favoritar Foto pra marcar uma.")
+
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
@@ -684,6 +719,7 @@ def menu():
         print(f"  [8] Mover foto de materia")
         print(f"  [9] Anotar foto")
         print(f"  [10] Favoritar foto")
+        print(f"  [11] Ver favoritas")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -713,6 +749,8 @@ def menu():
                 adicionar_anotacao()
             case "10":
                 favoritar_foto()
+            case "11":
+                ver_favoritas()
             case "0":
                 limpar()
                 print()
