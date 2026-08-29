@@ -28,6 +28,12 @@ A proposta real consiste em uma ferramenta integrada à câmera do dispositivo o
 | `[3]` | Ver todas as fotos organizadas por matéria |
 | `[4]` | Buscar foto por matéria, tema ou palavra-chave |
 | `[5]` | Remover uma foto |
+| `[6]` | Remover uma matéria (e todas as fotos dela) |
+| `[7]` | Reconhecer texto de uma foto (simulação de OCR) |
+| `[8]` | Mover uma foto para outra matéria |
+| `[9]` | Adicionar uma anotação a uma foto |
+| `[10]` | Favoritar/desfavoritar uma foto |
+| `[11]` | Ver apenas as fotos favoritas |
 | `[0]` | Sair do programa |
 
 ---
@@ -112,21 +118,34 @@ framelab.py
 │
 ├── Funções de lógica
 │   ├── achar_materia() ← busca matéria na lista pelo nome
+│   ├── pedir_numero() ← valida um numero digitado dentro de um intervalo
+│   ├── escolher_materia() ← lista e devolve a matéria escolhida pelo usuário
+│   ├── confirmar() ← pede confirmação (s/n) antes de ações irreversíveis
 │   ├── cadastrar_materia()
 │   ├── adicionar_foto()
 │   ├── ver_fotos()
 │   ├── remover_foto()
+│   ├── remover_materia() ← remove uma matéria e todas as suas fotos
+│   ├── reconhecer_texto_ocr() ← simula o OCR de uma foto
+│   ├── mover_foto() ← move uma foto entre matérias
+│   ├── adicionar_anotacao() ← anota uma foto já cadastrada
+│   ├── favoritar_foto() ← marca/desmarca uma foto como favorita
+│   ├── ver_favoritas() ← lista só as fotos favoritas
 │   ├── buscar()
 │   └── mostrar_resultados()
+│
+├── Persistência de dados
+│   ├── salvar_dados() ← grava a lista de matérias em dados_framelab.json
+│   └── carregar_dados() ← recupera os dados salvos ao iniciar o programa
 │
 └── menu() ← loop principal do programa
 ```
 
 ---
 
-## ⚠️ Observação 
+## 💾 Persistência de dados
 
-Os dados ficam armazenados na memória enquanto o programa está rodando. Ao encerrar, as informações são perdidas — sem banco de dados ou arquivo externo nesta versão, que representa a simulação do fluxo principal da solução proposta.
+Os dados agora são salvos automaticamente em um arquivo `dados_framelab.json`, criado na mesma pasta do programa. Assim, matérias e fotos cadastradas continuam disponíveis mesmo depois de fechar e abrir o programa novamente.
 
 ---
 
