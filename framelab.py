@@ -434,6 +434,33 @@ def escolher_materia(mensagem, somente_com_fotos=False):
         return None
     return disponiveis[numero - 1]
 
+def confirmar(mensagem):
+    print()
+    resposta = input(CINZA + f"  {mensagem} (s/n): " + RESET).strip().lower()
+    return resposta == "s"
+
+
+def remover_materia():
+    titulo("Remover Materia")
+    materia = escolher_materia("Qual materia deseja remover?")
+    if materia is None:
+        voltar()
+        return
+
+    total_fotos = len(materia["fotos"])
+    aviso = f"Isso vai apagar tambem {total_fotos} foto(s). Confirma remover '{materia['nome']}'?"
+    if not confirmar(aviso):
+        bot("Ok, operacao cancelada.")
+        voltar()
+        return
+
+    materias.remove(materia)
+    salvar_dados()
+
+    print()
+    ok(f"Materia '{materia['nome']}' removida com sucesso!")
+    voltar()
+
 # menu principal com loop while
 def menu():
     limpar()
@@ -474,6 +501,7 @@ def menu():
         print(f"  [3] Ver fotos")
         print(f"  [4] Buscar foto")
         print(f"  [5] Remover foto")
+        print(f"  [6] Remover materia")
         print()
         print(CINZA + "  [0] Sair" + RESET)
         print()
@@ -493,6 +521,8 @@ def menu():
                 buscar()
             case "5":
                 remover_foto()
+            case "6":
+                remover_materia()
             case "0":
                 limpar()
                 print()
